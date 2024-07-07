@@ -25,10 +25,6 @@ export const navItems = [
     title: "Contact",
     to: "/contact",
   },
-  {
-    title: "Property Search",
-    to: "/property-search",
-  },
 ];
 
 const Layout = () => {

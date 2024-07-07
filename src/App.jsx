@@ -5,7 +5,8 @@ import { Home } from "lucide-react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./layouts/navbar"; // updated to use navbar layout
 import Index from "./pages/Index.jsx";
-import PropertySearch from "./pages/PropertySearch";
+import AboutUs from "./pages/AboutUs";
+import Contact from "./pages/Contact";
 const queryClient = new QueryClient();
 
 export const navItems = [
@@ -35,7 +36,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Layout />}> {/* updated to use navbar layout */}
               <Route index element={<Index />} />
-              <Route path="property-search" element={<PropertySearch />} />
+              <Route path="about-us" element={<AboutUs />} />
+              <Route path="contact" element={<Contact />} />
             </Route>
           </Routes>
         </Router>
