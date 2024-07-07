@@ -14,15 +14,15 @@ import { NavLink, Outlet } from "react-router-dom";
 
 export const navItems = [
   {
-    title: "Home",
+    title: "HOME",
     to: "/",
   },
   {
-    title: "About Us",
+    title: "ABOUT US",
     to: "/about-us",
   },
   {
-    title: "Contact",
+    title: "CONTACT",
     to: "/contact",
   },
 ];
@@ -51,7 +51,7 @@ const DesktopNav = () => (
       <span className="sr-only">LUZCO</span>
     </NavItem>
     {navItems.map((item) => (
-      <NavItem key={item.to} to={item.to}>
+      <NavItem key={item.to} to={item.to} className="uppercase">
         <span>{item.title}</span>
       </NavItem>
     ))}
@@ -75,7 +75,7 @@ const MobileNav = () => (
           <span className="sr-only">LUZCO</span>
         </NavItem>
         {navItems.map((item) => (
-          <NavItem key={item.to} to={item.to}>
+          <NavItem key={item.to} to={item.to} className="uppercase">
             <span>{item.title}</span>
           </NavItem>
         ))}

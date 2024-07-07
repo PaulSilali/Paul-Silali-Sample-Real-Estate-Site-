@@ -14,15 +14,15 @@ import { NavLink, Outlet } from "react-router-dom";
 
 export const navItems = [
   {
-    title: "Home",
+    title: "HOME",
     to: "/",
   },
   {
-    title: "About Us",
+    title: "ABOUT US",
     to: "/about-us",
   },
   {
-    title: "Contact",
+    title: "CONTACT",
     to: "/contact",
   },
 ];
@@ -56,7 +56,7 @@ const Sidebar = () => (
       <div className="flex-1">
         <nav className="grid items-start px-2 text-sm font-medium lg:px-4 gap-2">
           {navItems.map((item) => (
-            <SidebarNavLink key={item.to} to={item.to}>
+            <SidebarNavLink key={item.to} to={item.to} className="uppercase">
               {item.title}
             </SidebarNavLink>
           ))}
@@ -83,7 +83,7 @@ const MobileSidebar = () => (
           <span className="sr-only">LUZCO</span>
         </NavLink>
         {navItems.map((item) => (
-          <SidebarNavLink key={item.to} to={item.to}>
+          <SidebarNavLink key={item.to} to={item.to} className="uppercase">
             {item.title}
           </SidebarNavLink>
         ))}
