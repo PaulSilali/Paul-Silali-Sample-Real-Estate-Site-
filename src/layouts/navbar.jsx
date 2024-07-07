@@ -10,9 +10,25 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { CircleUser, Menu, Package2 } from "lucide-react";
+import { CircleUser, Menu, Package2, Home, Info, Mail } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
-import { navItems } from "../App";
+export const navItems = [
+  {
+    title: "Home",
+    to: "/",
+    icon: <Home className="h-4 w-4" />,
+  },
+  {
+    title: "About Us",
+    to: "/about-us",
+    icon: <Info className="h-4 w-4" />,
+  },
+  {
+    title: "Contact",
+    to: "/contact",
+    icon: <Mail className="h-4 w-4" />,
+  },
+];
 
 const Layout = () => {
   return (
@@ -41,7 +57,8 @@ const DesktopNav = () => (
     <img src={luxuryShipImage} alt="Luxury Ship" className="h-10 w-auto" />
     {navItems.map((item) => (
       <NavItem key={item.to} to={item.to}>
-        {item.title}
+        {item.icon}
+        <span>{item.title}</span>
       </NavItem>
     ))}
   </nav>
@@ -67,7 +84,8 @@ const MobileNav = () => (
         <img src={luxuryShipImage} alt="Luxury Ship" className="h-10 w-auto" />
         {navItems.map((item) => (
           <NavItem key={item.to} to={item.to}>
-            {item.title}
+            {item.icon}
+            <span>{item.title}</span>
           </NavItem>
         ))}
       </nav>
