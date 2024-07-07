@@ -9,26 +9,23 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { CircleUser, Menu, Package2, Home, Info, Mail } from "lucide-react";
+import { Menu } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
+
 export const navItems = [
   {
     title: "Home",
     to: "/",
-    icon: <Home className="h-4 w-4" />,
   },
   {
     title: "About Us",
     to: "/about-us",
-    icon: <Info className="h-4 w-4" />,
   },
   {
     title: "Contact",
     to: "/contact",
-    icon: <Mail className="h-4 w-4" />,
   },
 ];
-import luxuryShipImage from "../../public/images/luxury-ship.jpg";
 
 const Layout = () => {
   return (
@@ -53,16 +50,13 @@ const Sidebar = () => (
     <div className="flex h-full max-h-screen flex-col gap-2">
       <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
         <NavLink to="/" className="flex items-center gap-2 font-semibold">
-          <Package2 className="h-6 w-6" />
           <span>LUZCO</span>
         </NavLink>
       </div>
-      <img src={luxuryShipImage} alt="Luxury Ship" className="w-full h-auto" />
       <div className="flex-1">
         <nav className="grid items-start px-2 text-sm font-medium lg:px-4 gap-2">
           {navItems.map((item) => (
             <SidebarNavLink key={item.to} to={item.to}>
-              {item.icon}
               {item.title}
             </SidebarNavLink>
           ))}
@@ -86,7 +80,6 @@ const MobileSidebar = () => (
           to="/"
           className="flex items-center gap-2 text-lg font-semibold mb-4"
         >
-          <Package2 className="h-6 w-6" />
           <span className="sr-only">LUZCO</span>
         </NavLink>
         {navItems.map((item) => (
@@ -103,7 +96,6 @@ const UserDropdown = () => (
   <DropdownMenu>
     <DropdownMenuTrigger asChild>
       <Button variant="secondary" size="icon" className="rounded-full">
-        <CircleUser className="h-5 w-5" />
         <span className="sr-only">Toggle user menu</span>
       </Button>
     </DropdownMenuTrigger>
