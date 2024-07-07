@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import { CircleUser, Menu, Package2 } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
 import { navItems } from "../App";
+import luxuryShipImage from "../../public/images/luxury-ship.jpg";
 
 const Layout = () => {
   return (
@@ -40,6 +41,7 @@ const Sidebar = () => (
           <span>LUZCO</span>
         </NavLink>
       </div>
+      <img src={luxuryShipImage} alt="Luxury Ship" className="w-full h-auto" />
       <div className="flex-1">
         <nav className="grid items-start px-2 text-sm font-medium lg:px-4 gap-2">
           {navItems.map((item) => (

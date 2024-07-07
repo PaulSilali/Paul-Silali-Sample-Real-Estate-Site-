@@ -1,3 +1,4 @@
+import luxuryShipImage from "../../public/images/luxury-ship.jpg";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -37,6 +38,7 @@ const DesktopNav = () => (
       <Package2 className="h-6 w-6" />
       <span className="sr-only">LUZCO</span>
     </NavItem>
+    <img src={luxuryShipImage} alt="Luxury Ship" className="h-10 w-auto" />
     {navItems.map((item) => (
       <NavItem key={item.to} to={item.to}>
         {item.title}
@@ -62,6 +64,7 @@ const MobileNav = () => (
           <Package2 className="h-6 w-6" />
           <span className="sr-only">LUZCO</span>
         </NavItem>
+        <img src={luxuryShipImage} alt="Luxury Ship" className="h-10 w-auto" />
         {navItems.map((item) => (
           <NavItem key={item.to} to={item.to}>
             {item.title}
