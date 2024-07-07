@@ -37,7 +37,7 @@ const Index = () => {
   };
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-16 font-serif">
       {/* Hero Section */}
       <section className="relative h-[600px] bg-gray-800 text-white">
         <img src="/images/hero-background.jpg" alt="Luxury Real Estate" className="absolute inset-0 w-full h-full object-cover opacity-50" />

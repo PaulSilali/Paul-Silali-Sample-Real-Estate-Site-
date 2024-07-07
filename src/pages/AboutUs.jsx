@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const AboutUs = () => {
   return (
-    <div className="container mx-auto space-y-8">
+    <div className="container mx-auto space-y-8 font-serif">
       <Card>
         <CardHeader>
           <CardTitle>About Us</CardTitle>
