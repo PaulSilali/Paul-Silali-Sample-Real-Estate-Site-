@@ -43,7 +43,7 @@ const Index = () => {
         <img src="/placeholder.svg" alt="placeholder" className="absolute inset-0 w-full h-full object-cover opacity-50" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full space-y-4">
           <h1 className="text-5xl font-bold">Find Your Dream Home</h1>
-          <p className="text-xl">Luxury properties for the modern lifestyle</p>
+          <p className="text-xl">Invest in Property</p>
           <form onSubmit={searchForm.handleSubmit(onSearchSubmit)} className="flex space-x-4">
             <Input placeholder="Location" {...searchForm.register("location")} />
             <Input placeholder="Property Type" {...searchForm.register("propertyType")} />
