@@ -40,7 +40,7 @@ const Index = () => {
     <div className="space-y-16">
       {/* Hero Section */}
       <section className="relative h-[600px] bg-gray-800 text-white">
-        <img src="/placeholder.svg" alt="placeholder" className="absolute inset-0 w-full h-full object-cover opacity-50" />
+        <img src="/images/hero-background.jpg" alt="Luxury Real Estate" className="absolute inset-0 w-full h-full object-cover opacity-50" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full space-y-4">
           <h1 className="text-5xl font-bold">Find Your Dream Home</h1>
           <p className="text-xl">Invest in Property</p>
@@ -57,20 +57,42 @@ const Index = () => {
       <section className="container mx-auto space-y-8">
         <h2 className="text-3xl font-bold text-center">Featured Properties</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[1, 2, 3].map((property) => (
-            <Card key={property}>
-              <img src="/placeholder.svg" alt="placeholder" className="w-full h-48 object-cover" />
-              <CardHeader>
-                <CardTitle>Luxury Villa {property}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>Beautiful villa with modern amenities and stunning views.</p>
-              </CardContent>
-              <CardFooter>
-                <Button>View Details</Button>
-              </CardFooter>
-            </Card>
-          ))}
+          <Card>
+            <img src="/images/featured-property-1.jpg" alt="Luxury Villa" className="w-full h-48 object-cover" />
+            <CardHeader>
+              <CardTitle>Luxury Villa 1</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>Beautiful villa with modern amenities and stunning views.</p>
+            </CardContent>
+            <CardFooter>
+              <Button>View Details</Button>
+            </CardFooter>
+          </Card>
+          <Card>
+            <img src="/images/featured-property-2.jpg" alt="Luxury Apartment" className="w-full h-48 object-cover" />
+            <CardHeader>
+              <CardTitle>Luxury Apartment 2</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>Beautiful apartment with modern amenities and stunning views.</p>
+            </CardContent>
+            <CardFooter>
+              <Button>View Details</Button>
+            </CardFooter>
+          </Card>
+          <Card>
+            <img src="/images/featured-property-3.jpg" alt="Luxury Mansion" className="w-full h-48 object-cover" />
+            <CardHeader>
+              <CardTitle>Luxury Mansion 3</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>Beautiful mansion with modern amenities and stunning views.</p>
+            </CardContent>
+            <CardFooter>
+              <Button>View Details</Button>
+            </CardFooter>
+          </Card>
         </div>
       </section>
 
@@ -78,7 +100,7 @@ const Index = () => {
       <section className="container mx-auto space-y-8">
         <h2 className="text-3xl font-bold text-center">About Us</h2>
         <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
-          <img src="/placeholder.svg" alt="placeholder" className="w-full md:w-1/2 h-64 object-cover" />
+          <img src="/images/about-us.jpg" alt="About Us" className="w-full md:w-1/2 h-64 object-cover" />
           <p className="text-lg">
             We are a premier real estate company dedicated to providing luxury properties for the modern lifestyle. Our mission is to help you find your dream home with ease and confidence.
           </p>
