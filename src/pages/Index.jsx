@@ -42,7 +42,7 @@ const Index = () => {
       <section className="relative h-[600px] bg-gray-800 text-white">
         <img src="/images/hero-background.jpg" alt="Luxury Real Estate" className="absolute inset-0 w-full h-full object-cover opacity-50" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full space-y-4">
-          <h1 className="text-5xl font-bold">Find Your Dream Home</h1>
+          <h1 className="text-5xl font-bold">LUZCO</h1>
           <p className="text-xl">Invest in Property</p>
           <form onSubmit={searchForm.handleSubmit(onSearchSubmit)} className="flex space-x-4">
             <Input placeholder="Location" {...searchForm.register("location")} />
@@ -53,61 +53,46 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Properties Section */}
+      {/* Introduction Section */}
+      <section className="container mx-auto space-y-8 text-center">
+        <p className="text-lg">
+          Discover the pinnacle of luxury living with our exclusive collection of high-end properties.
+        </p>
+      </section>
+
+      {/* New Projects Section */}
       <section className="container mx-auto space-y-8">
-        <h2 className="text-3xl font-bold text-center">Featured Properties</h2>
+        <h2 className="text-3xl font-bold text-center">New Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <Card>
-            <img src="/images/featured-property-1.jpg" alt="Luxury Villa" className="w-full h-48 object-cover" />
-            <CardHeader>
-              <CardTitle>Luxury Villa 1</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>Beautiful villa with modern amenities and stunning views.</p>
-            </CardContent>
-            <CardFooter>
-              <Button>View Details</Button>
-            </CardFooter>
-          </Card>
-          <Card>
-            <img src="/images/featured-property-2.jpg" alt="Luxury Apartment" className="w-full h-48 object-cover" />
-            <CardHeader>
-              <CardTitle>Luxury Apartment 2</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>Beautiful apartment with modern amenities and stunning views.</p>
-            </CardContent>
-            <CardFooter>
-              <Button>View Details</Button>
-            </CardFooter>
-          </Card>
-          <Card>
-            <img src="/images/featured-property-3.jpg" alt="Luxury Mansion" className="w-full h-48 object-cover" />
-            <CardHeader>
-              <CardTitle>Luxury Mansion 3</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>Beautiful mansion with modern amenities and stunning views.</p>
-            </CardContent>
-            <CardFooter>
-              <Button>View Details</Button>
-            </CardFooter>
-          </Card>
+          {/* Add new project cards here */}
         </div>
       </section>
 
-      {/* About Us Section */}
+      {/* Exceptional Properties Section */}
       <section className="container mx-auto space-y-8">
-        <h2 className="text-3xl font-bold text-center">About Us</h2>
-        <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
-          <img src="/images/about-us.jpg" alt="About Us" className="w-full md:w-1/2 h-64 object-cover" />
-          <p className="text-lg">
-            We are a premier real estate company dedicated to providing luxury properties for the modern lifestyle. Our mission is to help you find your dream home with ease and confidence.
-          </p>
+        <h2 className="text-3xl font-bold text-center">Exceptional Properties</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Add exceptional property cards here */}
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Sell My Property Section */}
+      <section className="container mx-auto space-y-8">
+        <h2 className="text-3xl font-bold text-center">Sell My Property</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Add sell my property cards here */}
+        </div>
+      </section>
+
+      {/* Why We Are the Best Partner Section */}
+      <section className="container mx-auto space-y-8">
+        <h2 className="text-3xl font-bold text-center">Why We Are the Best Partner for You</h2>
+        <p className="text-lg text-center">
+          We provide unparalleled service and expertise to help you find your dream home or sell your property with ease.
+        </p>
+      </section>
+
+      {/* Contact Us Section */}
       <section className="container mx-auto space-y-8">
         <h2 className="text-3xl font-bold text-center">Contact Us</h2>
         <form onSubmit={contactForm.handleSubmit(onContactSubmit)} className="space-y-4">
@@ -122,6 +107,19 @@ const Index = () => {
           <p>Phone: (123) 456-7890</p>
           <p>Email: contact@luxuryrealestate.com</p>
         </div>
+      </section>
+
+      {/* Our Social Media Section */}
+      <section className="container mx-auto space-y-8">
+        <h2 className="text-3xl font-bold text-center">Our Social Media</h2>
+        <div className="flex justify-center space-x-4">
+          {/* Add social media icons/links here */}
+        </div>
+      </section>
+
+      {/* Our Logo Section */}
+      <section className="container mx-auto space-y-8 text-center">
+        <img src="/images/luxury-ship.jpg" alt="Our Logo" className="mx-auto h-32 w-32 object-cover" />
       </section>
     </div>
   );
