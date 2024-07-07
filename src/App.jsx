@@ -7,6 +7,7 @@ import Layout from "./layouts/navbar"; // updated to use navbar layout
 import Index from "./pages/Index.jsx";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
+import PropertySearch from "./pages/PropertySearch";
 const queryClient = new QueryClient();
 
 export const navItems = [
@@ -25,6 +26,11 @@ export const navItems = [
     to: "/contact",
     icon: <Home className="h-4 w-4" />,
   },
+  {
+    title: "Property Search",
+    to: "/property-search",
+    icon: <Home className="h-4 w-4" />,
+  },
 ];
 
 const App = () => {
@@ -38,6 +44,7 @@ const App = () => {
               <Route index element={<Index />} />
               <Route path="about-us" element={<AboutUs />} />
               <Route path="contact" element={<Contact />} />
+              <Route path="property-search" element={<PropertySearch />} />
             </Route>
           </Routes>
         </Router>
