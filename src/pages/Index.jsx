@@ -1,95 +1,128 @@
-import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import PropertyCard from '../components/PropertyCard';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+const searchSchema = z.object({
+  location: z.string().min(1, "Location is required"),
+  propertyType: z.string().min(1, "Property type is required"),
+  priceRange: z.string().min(1, "Price range is required"),
+});
+
+const contactSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().min(1, "Phone number is required"),
+  message: z.string().min(1, "Message is required"),
+});
 
 const Index = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    toast.success("Message sent successfully!");
+  const searchForm = useForm({
+    resolver: zodResolver(searchSchema),
+  });
+
+  const contactForm = useForm({
+    resolver: zodResolver(contactSchema),
+  });
+
+  const onSearchSubmit = (data) => {
+    console.log("Search data:", data);
+  };
+
+  const onContactSubmit = (data) => {
+    console.log("Contact data:", data);
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-grow">
-        <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
-          <div className="container mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-4">Welcome to Elite Estates</h1>
-            <p className="text-xl mb-8">Discover Your Dream Luxury Home</p>
-            <Button size="lg">View Properties</Button>
-          </div>
-        </section>
+    <div className="space-y-16 font-serif">
+      {/* Hero Section */}
+      <section className="relative h-[600px] bg-gray-800 text-white">
+        <img src="/images/hero-background.jpg" alt="Luxury Real Estate" className="absolute inset-0 w-full h-full object-cover opacity-50" />
+        <div className="relative z-10 flex flex-col items-center justify-center h-full space-y-4">
+          <h1 className="text-5xl font-bold">Find Your Dream Home</h1>
+          <p className="text-xl">Invest in Property</p>
+          <form onSubmit={searchForm.handleSubmit(onSearchSubmit)} className="flex space-x-4">
+            <Input placeholder="Location" {...searchForm.register("location")} />
+            <Input placeholder="Property Type" {...searchForm.register("propertyType")} />
+            <Input placeholder="Price Range" {...searchForm.register("priceRange")} />
+            <Button type="submit">Search</Button>
+          </form>
+        </div>
+      </section>
 
-        <section className="py-16 bg-gray-100">
-          <div className="container mx-auto">
-            <h2 className="text-3xl font-semibold text-center mb-12">Featured Properties</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <PropertyCard
-                image="/placeholder.svg"
-                title="Seaside Villa"
-                price="$2,500,000"
-                beds={4}
-                baths={3}
-                sqft={3500}
-              />
-              <PropertyCard
-                image="/placeholder.svg"
-                title="Mountain Retreat"
-                price="$1,800,000"
-                beds={3}
-                baths={2}
-                sqft={2800}
-              />
-              <PropertyCard
-                image="/placeholder.svg"
-                title="Urban Penthouse"
-                price="$3,200,000"
-                beds={5}
-                baths={4}
-                sqft={4200}
-              />
-            </div>
-          </div>
-        </section>
+      {/* Featured Properties Section */}
+      <section className="container mx-auto space-y-8">
+        <h2 className="text-3xl font-bold text-center">Featured Properties</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Card>
+            <img src="/images/featured-property-1.jpg" alt="Luxury Villa" className="w-full h-48 object-cover" />
+            <CardHeader>
+              <CardTitle>Luxury Villa 1</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>Beautiful villa with modern amenities and stunning views.</p>
+            </CardContent>
+            <CardFooter>
+              <Button>View Details</Button>
+            </CardFooter>
+          </Card>
+          <Card>
+            <img src="/images/featured-property-2.jpg" alt="Luxury Apartment" className="w-full h-48 object-cover" />
+            <CardHeader>
+              <CardTitle>Luxury Apartment 2</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>Beautiful apartment with modern amenities and stunning views.</p>
+            </CardContent>
+            <CardFooter>
+              <Button>View Details</Button>
+            </CardFooter>
+          </Card>
+          <Card>
+            <img src="/images/featured-property-3.jpg" alt="Luxury Mansion" className="w-full h-48 object-cover" />
+            <CardHeader>
+              <CardTitle>Luxury Mansion 3</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>Beautiful mansion with modern amenities and stunning views.</p>
+            </CardContent>
+            <CardFooter>
+              <Button>View Details</Button>
+            </CardFooter>
+          </Card>
+        </div>
+      </section>
 
-        <section className="py-16">
-          <div className="container mx-auto">
-            <h2 className="text-3xl font-semibold text-center mb-12">Contact Us</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <Input placeholder="Your Name" required />
-                  <Input type="email" placeholder="Your Email" required />
-                  <Textarea placeholder="Your Message" required />
-                  <Button type="submit">Send Message</Button>
-                </form>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Our Information</h3>
-                <div className="space-y-4">
-                  <p className="flex items-center">
-                    <MapPin className="mr-2" /> 789 Luxury Ave, Prestige City
-                  </p>
-                  <p className="flex items-center">
-                    <Phone className="mr-2" /> (987) 654-3210
-                  </p>
-                  <p className="flex items-center">
-                    <Mail className="mr-2" /> info@eliteestates.com
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
+      {/* About Us Section */}
+      <section className="container mx-auto space-y-8">
+        <h2 className="text-3xl font-bold text-center">About Us</h2>
+        <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+          <img src="/images/about-us.jpg" alt="About Us" className="w-full md:w-1/2 h-64 object-cover" />
+          <p className="text-lg">
+            We are a premier real estate company dedicated to providing luxury properties for the modern lifestyle. Our mission is to help you find your dream home with ease and confidence.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="container mx-auto space-y-8">
+        <h2 className="text-3xl font-bold text-center">Contact Us</h2>
+        <form onSubmit={contactForm.handleSubmit(onContactSubmit)} className="space-y-4">
+          <Input placeholder="Name" {...contactForm.register("name")} />
+          <Input placeholder="Email" {...contactForm.register("email")} />
+          <Input placeholder="Phone" {...contactForm.register("phone")} />
+          <Textarea placeholder="Message" {...contactForm.register("message")} />
+          <Button type="submit">Submit</Button>
+        </form>
+        <div className="text-center">
+          <p>Address: 123 Luxury St, Dream City</p>
+          <p>Phone: (123) 456-7890</p>
+          <p>Email: contact@luxuryrealestate.com</p>
+        </div>
+      </section>
     </div>
   );
 };
